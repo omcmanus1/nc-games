@@ -5,7 +5,7 @@ export default function NavBar() {
     <header className="header">
       <nav className="navbar">
         <Link to="/" className="nav-link">
-          NM
+          NC GAMES
         </Link>
         <ul className="nav-menu">
           <li className="nav-item">
@@ -14,8 +14,8 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/items" className="nav-link">
-              All Items
+            <Link to="/reviews" className="nav-link">
+              Reviews
             </Link>
           </li>
           <li className="nav-item">
@@ -24,13 +24,13 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/list-item" className="nav-link">
-              List Item
+            <Link to="/users" className="nav-link">
+              Users
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/basket" className="nav-link">
-              Basket
+            <Link to="/reviews/post-review" className="nav-link">
+              Post A Review
             </Link>
           </li>
         </ul>
