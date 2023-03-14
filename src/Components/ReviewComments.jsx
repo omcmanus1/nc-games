@@ -16,11 +16,10 @@ export default function ReviewComments({ review_id }) {
   }, [review_id]);
 
   const renderComments = () => {
-    console.log(reviewComments);
     return reviewComments.map((comment) => {
       return (
         <li className="comments-list" key={comment.comment_id}>
-          {comment.body}
+          {comment.body} ({comment.votes} Likes)
         </li>
       );
     });

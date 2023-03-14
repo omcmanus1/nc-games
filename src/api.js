@@ -29,7 +29,6 @@ export const fetchReviewComments = (review_id) => {
     .get(`/reviews/${review_id}/comments`)
     .then((res) => {
       const { comments } = res.data;
-      console.log(comments);
       return comments;
     })
     .catch((err) => console.log(err));
