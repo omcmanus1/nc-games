@@ -99,13 +99,24 @@ a {
   padding: 1rem;
 }
 
-.review-card {
+.reviews-card {
   margin: 3%;
 }
 
 .review-image {
-  max-width: 100%;
+  max-width: 80%;
+  margin: 2%;
 }
+
+.review-body {
+  text-align: center;
+  margin: 2% 10% 2% 10%;
+}
+
+/* .single-review-card {
+  display: flex;
+  flex-direction: column;
+} */
 
 @media only screen and (max-width: 768px) {
   .nav-menu {

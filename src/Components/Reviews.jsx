@@ -5,19 +5,19 @@ import { fetchAllReviews } from "../api";
 import ReviewsCard from "./ReviewsCard";
 
 export default function Reviews() {
-  const [reviewData, setReviewData] = useState([]);
+  const [reviewsData, setReviewsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
     fetchAllReviews().then((reviews) => {
-      setReviewData(reviews);
+      setReviewsData(reviews);
       setIsLoading(false);
     });
   }, []);
 
   const buildReviewCard = () => {
-    return reviewData.map((review) => {
+    return reviewsData.map((review) => {
       return (
         <ReviewsCard
           value={JSON.stringify(review)}

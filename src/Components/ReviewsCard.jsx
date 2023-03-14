@@ -4,7 +4,7 @@ export default function ReviewsCard(reviewOutput) {
   const review = JSON.parse(reviewOutput.value);
   return (
     <Link to={`/reviews/${review.review_id}`}>
-      <section className="review-card">
+      <section className="reviews-card">
         <h2>{review.title}</h2>
         <img
           className="review-image"

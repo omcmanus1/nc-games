@@ -15,7 +15,26 @@ export default function SingleReview() {
     });
   }, [review_id, setSingleReviewData]);
 
+  console.log(singleReviewData);
+
   if (isLoading) return <h2>Loading...</h2>;
 
-  return <h2>This Is A Single Review for ID {review_id}</h2>;
+  return (
+    <section className="reviews-card">
+      <h2>{singleReviewData.title}</h2>
+      <img
+        className="review-image"
+        src={singleReviewData.review_img_url}
+        alt={singleReviewData.title}
+      />
+      <p className="review-body">{singleReviewData.review_body}</p>
+      <ul className="review-details">
+        <li>Designer: {singleReviewData.designer}</li>
+        <li>Category: {singleReviewData.category}</li>
+        <li>Likes: {singleReviewData.votes}</li>
+        <li>Comments: {singleReviewData.comment_count}</li>
+        <li>Username: {singleReviewData.owner}</li>
+      </ul>
+    </section>
+  );
 }
