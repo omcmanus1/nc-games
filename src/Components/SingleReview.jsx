@@ -15,7 +15,7 @@ export default function SingleReview() {
       setSingleReviewData(review);
       setIsLoading(false);
     });
-  }, [review_id, setSingleReviewData]);
+  }, [review_id]);
 
   const handleButtonClick = () => {
     setCommentsClicked(true);
@@ -50,7 +50,7 @@ export default function SingleReview() {
           </button>
         </li>
       </ul>
-      {commentsClicked ? <ReviewComments review_id={review_id} /> : <></>}
+      {commentsClicked ? <ReviewComments review_id={review_id} /> : null}
     </section>
   );
 }
