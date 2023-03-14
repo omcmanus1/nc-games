@@ -18,7 +18,7 @@ export default function SingleReview() {
   }, [review_id]);
 
   const handleButtonClick = () => {
-    setCommentsClicked(true);
+    setCommentsClicked(!commentsClicked);
   };
 
   if (isLoading) return <h2>Loading...</h2>;
@@ -45,9 +45,15 @@ export default function SingleReview() {
         </li>
         <li>Likes: {singleReviewData.votes}</li>
         <li>
-          <button className="comment-button" onClick={handleButtonClick}>
-            Comments ({singleReviewData.comment_count})
-          </button>
+          {commentsClicked ? (
+            <button className="comment-button" onClick={handleButtonClick}>
+              Hide Comments
+            </button>
+          ) : (
+            <button className="comment-button" onClick={handleButtonClick}>
+              Show Comments ({singleReviewData.comment_count})
+            </button>
+          )}
         </li>
       </ul>
       {commentsClicked ? <ReviewComments review_id={review_id} /> : null}
