@@ -10,3 +10,10 @@ export const fetchAllReviews = () => {
     return reviews;
   });
 };
+
+export const fetchSingleReview = (review_id) => {
+  return ncgamesApi.get(`/reviews/${review_id}`).then((res) => {
+    const { review } = res.data;
+    return review[0];
+  });
+};
