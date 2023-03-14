@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleReview } from "../api";
+import ReviewComments from "./ReviewComments";
 
 export default function SingleReview() {
   const { review_id } = useParams();
@@ -15,6 +16,10 @@ export default function SingleReview() {
       setIsLoading(false);
     });
   }, [review_id, setSingleReviewData]);
+
+  const handleButtonClick = () => {
+    setCommentsClicked(true);
+  };
 
   if (isLoading) return <h2>Loading...</h2>;
 
@@ -40,11 +45,12 @@ export default function SingleReview() {
         </li>
         <li>Likes: {singleReviewData.votes}</li>
         <li>
-          <button className="comment-button">
+          <button className="comment-button" onClick={handleButtonClick}>
             Comments ({singleReviewData.comment_count})
           </button>
         </li>
       </ul>
+      {commentsClicked ? <ReviewComments review_id={review_id} /> : <></>}
     </section>
   );
 }

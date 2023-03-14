@@ -5,15 +5,32 @@ const ncgamesApi = axios.create({
 });
 
 export const fetchAllReviews = () => {
-  return ncgamesApi.get("/reviews?sort_by=votes").then((res) => {
-    const { reviews } = res.data;
-    return reviews;
-  });
+  return ncgamesApi
+    .get("/reviews?sort_by=votes")
+    .then((res) => {
+      const { reviews } = res.data;
+      return reviews;
+    })
+    .catch((err) => console.log(err));
 };
 
 export const fetchSingleReview = (review_id) => {
-  return ncgamesApi.get(`/reviews/${review_id}`).then((res) => {
-    const { review } = res.data;
-    return review[0];
-  });
+  return ncgamesApi
+    .get(`/reviews/${review_id}`)
+    .then((res) => {
+      const { review } = res.data;
+      return review[0];
+    })
+    .catch((err) => console.log(err));
+};
+
+export const fetchReviewComments = (review_id) => {
+  return ncgamesApi
+    .get(`/reviews/${review_id}/comments`)
+    .then((res) => {
+      const { comments } = res.data;
+      console.log(comments);
+      return comments;
+    })
+    .catch((err) => console.log(err));
 };
