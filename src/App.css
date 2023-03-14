@@ -46,7 +46,7 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #101010;
+  background-color: black;
 }
 
 .nav-menu {
@@ -104,13 +104,22 @@ a {
 }
 
 .review-image {
-  max-width: 80%;
+  max-width: 40%;
   margin: 2%;
 }
 
 .review-body {
   text-align: center;
   margin: 2% 10% 2% 10%;
+}
+
+.comment-button {
+  box-shadow: 5%;
+  background-color: #96A49F;
+  color: black;
+  padding: 0.8%;
+  margin: 0.5%;
+  border-radius: 18px;
 }
 
 /* .single-review-card {
