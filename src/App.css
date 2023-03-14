@@ -75,6 +75,10 @@ a {
   color: #9E8D7C;
 }
 
+.reviews-title {
+  margin: 2%;
+}
+
 .reviews-filter {
   display: block;
   margin: 0;
@@ -93,6 +97,14 @@ a {
   height: 3vh;
   text-align: center;
   padding: 1rem;
+}
+
+.review-card {
+  margin: 3%;
+}
+
+.review-image {
+  max-width: 100%;
 }
 
 @media only screen and (max-width: 768px) {

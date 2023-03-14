@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
-
 export default function ReviewsFilter() {
   const ChooseFilter = (e) => {
-    console.log(e.target.value);
+    return e.target.value;
   };
 
   return (
