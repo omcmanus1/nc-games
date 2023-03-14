@@ -6,9 +6,14 @@ import ReviewsCard from "./ReviewsCard";
 
 export default function Reviews() {
   const [reviewData, setReviewData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchAllReviews().then((reviews) => setReviewData(reviews));
+    setIsLoading(true);
+    fetchAllReviews().then((reviews) => {
+      setReviewData(reviews);
+      setIsLoading(false);
+    });
   }, []);
 
   const buildReviewCard = () => {
@@ -23,6 +28,8 @@ export default function Reviews() {
       );
     });
   };
+
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <>
