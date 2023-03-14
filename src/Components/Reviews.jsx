@@ -11,22 +11,24 @@ export default function Reviews() {
     fetchAllReviews().then((reviews) => setReviewData(reviews));
   }, []);
 
-  const prepReviewCard = () => {};
+  const buildReviewCard = () => {
+    return reviewData.map((review) => {
+      return (
+        <ReviewsCard
+          value={JSON.stringify(review)}
+          id={review.id}
+          key={review.title}
+          review={review}
+        />
+      );
+    });
+  };
 
   return (
     <>
       <ReviewsFilter />
       <h1 className="reviews-title">Top Reviews</h1>
-      {reviewData.map((review) => {
-        return (
-          <ReviewsCard
-            value={JSON.stringify(review)}
-            id={review.id}
-            key={review.title}
-            review={review}
-          />
-        );
-      })}
+      {buildReviewCard()}
     </>
   );
 }
