@@ -34,7 +34,7 @@ export default function NavBar() {
             </Link>
           </li>
         </ul>
-        <div className="hamburger-menu">
+        <div className="hamburger">
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>

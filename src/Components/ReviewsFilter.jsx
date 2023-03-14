@@ -1,0 +1,32 @@
+import { Link } from "react-router-dom";
+
+export default function ReviewsFilter() {
+  const ChooseFilter = (e) => {
+    console.log(e.target.value);
+  };
+
+  return (
+    <form className="reviews-filter">
+      <label className="dropdown-label" htmlFor="filter-reviews">
+        Filter By:
+      </label>
+      <select
+        className="dropdown"
+        name="filters"
+        id="filter-reviews"
+        defaultValue=""
+        onChange={ChooseFilter}
+      >
+        <option id="default-option" value="" disabled hidden>
+          Please Choose...
+        </option>
+        <option id="category" value="Category">
+          Category
+        </option>
+        <option id="owner" value="Owner">
+          Owner
+        </option>
+      </select>
+    </form>
+  );
+}

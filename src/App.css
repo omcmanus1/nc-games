@@ -66,13 +66,33 @@ a {
 }
 
 .nav-link:hover {
-  color: #482ff7;
+  color: #0f0f12;
 }
 
 .nav-logo {
   font-size: 1.6rem;
   font-weight: 500;
-  color: #482ff7;
+  color: #9E8D7C;
+}
+
+.reviews-filter {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.dropdown-label {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.dropdown {
+  width: 40vw;
+  height: 3vh;
+  text-align: center;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
