@@ -122,6 +122,11 @@ a {
   border-radius: 18px;
 }
 
+.comments-list {
+  list-style-type: decimal;
+  margin: 2% 10% 2% 10%;
+}
+
 /* .single-review-card {
   display: flex;
   flex-direction: column;

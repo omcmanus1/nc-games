@@ -9,15 +9,24 @@ export default function ReviewComments({ review_id }) {
     setIsLoading(true);
     fetchReviewComments(review_id)
       .then((res) => {
-        setReviewComments(res.data);
+        setReviewComments(res);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, [review_id]);
 
-  console.log(reviewComments);
+  const renderComments = () => {
+    console.log(reviewComments);
+    return reviewComments.map((comment) => {
+      return (
+        <li className="comments-list" key={comment.comment_id}>
+          {comment.body}
+        </li>
+      );
+    });
+  };
 
   if (isLoading) return <h2>Loading...</h2>;
 
-  return <h2>Hi</h2>;
+  return <ol className="comments-list">{renderComments()}</ol>;
 }
