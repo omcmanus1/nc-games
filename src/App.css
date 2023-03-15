@@ -133,6 +133,10 @@ a {
   margin: 0.2%;
 }
 
+.error-message {
+  color: red;
+}
+
 /* .single-review-card {
   display: flex;
   flex-direction: column;
