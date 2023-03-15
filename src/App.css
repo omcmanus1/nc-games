@@ -99,6 +99,10 @@ a {
   padding: 1rem;
 }
 
+.reviews-page {
+  text-align: center;
+}
+
 .reviews-card {
   margin: 3%;
 }

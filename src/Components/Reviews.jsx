@@ -32,10 +32,10 @@ export default function Reviews() {
   if (isLoading) return <h2>Loading...</h2>;
 
   return (
-    <>
+    <section className="reviews-page">
       <ReviewsFilter />
       <h1 className="reviews-title">Top Reviews</h1>
       {buildReviewCard()}
-    </>
+    </section>
   );
 }
