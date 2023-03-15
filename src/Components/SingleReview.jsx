@@ -8,6 +8,7 @@ export default function SingleReview() {
   const [singleReviewData, setSingleReviewData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [commentsClicked, setCommentsClicked] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -43,7 +44,11 @@ export default function SingleReview() {
             singleReviewData.created_at.indexOf("T")
           )}
         </li>
-        <li>Likes: {singleReviewData.votes}</li>
+        <li>
+          Likes: {singleReviewData.votes}
+          <button className="like-button">👍</button>
+          <button className="like-button">👎</button>
+        </li>
         <li>
           {commentsClicked ? (
             <button className="comment-button" onClick={handleButtonClick}>

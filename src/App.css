@@ -127,6 +127,12 @@ a {
   margin: 2% 10% 2% 10%;
 }
 
+.like-button {
+  padding: 0.2%;
+  border-radius: 30%;
+  margin: 0.2%;
+}
+
 /* .single-review-card {
   display: flex;
   flex-direction: column;
