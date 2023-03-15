@@ -5,6 +5,8 @@ export default function ReviewComments({ review_id }) {
   const [isLoading, setIsLoading] = useState(true);
   const [reviewComments, setReviewComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [finalComment, setFinalComment] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -29,16 +31,32 @@ export default function ReviewComments({ review_id }) {
   };
 
   const handleSubmitComment = (e) => {
+    setIsLoading(true);
+    setErrorMessage("");
     e.preventDefault();
-    console.log(newComment);
-    postComment(review_id, "happyamy2016", newComment);
+    postComment(review_id, "grumpy19", newComment)
+      .then((comment) => {
+        setFinalComment(newComment);
+        setIsLoading(false);
+        return comment;
+      })
+      .catch((err) => {
+        setErrorMessage(err.response.data.message);
+        setIsLoading(false);
+      });
   };
 
   if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <>
-      <ul className="comments-list">{renderComments()}</ul>
+      <ul className="comments-list">
+        {renderComments()}
+        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
+        {finalComment ? (
+          <li className="comments-list">{finalComment}</li>
+        ) : null}
+      </ul>
       <form className="comment-form">
         <label htmlFor="submit-comment">Add a comment:</label>
         <input
