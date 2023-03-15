@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { fetchReviewComments } from "../api";
+import { fetchReviewComments, postComment } from "../api";
 
 export default function ReviewComments({ review_id }) {
   const [isLoading, setIsLoading] = useState(true);
   const [reviewComments, setReviewComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,18 +24,33 @@ export default function ReviewComments({ review_id }) {
     });
   };
 
+  const handleCommentText = (e) => {
+    setNewComment(e.target.value);
+  };
+
+  const handleSubmitComment = (e) => {
+    e.preventDefault();
+    console.log(newComment);
+    postComment(review_id, "happyamy2016", newComment);
+  };
+
   if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <>
-      <ol className="comments-list">{renderComments()}</ol>
+      <ul className="comments-list">{renderComments()}</ul>
       <form className="comment-form">
-        <label>Add a comment:</label>
-        <input placeholder="start typing..."></input>
+        <label htmlFor="submit-comment">Add a comment:</label>
+        <input
+          id="submit-comment"
+          placeholder="start typing..."
+          onChange={handleCommentText}
+        ></input>
         <input
           className="comment-button add-comment"
           type="submit"
           value="Add Comment"
+          onClick={handleSubmitComment}
         ></input>
       </form>
     </>

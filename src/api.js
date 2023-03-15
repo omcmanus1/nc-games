@@ -39,6 +39,7 @@ export const postComment = (review_id, username, comment) => {
       body: comment,
     })
     .then((res) => {
-      console.log(res);
+      const { comment } = res.data;
+      return comment[0].body;
     });
 };
