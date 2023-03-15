@@ -7,12 +7,10 @@ export default function ReviewComments({ review_id }) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviewComments(review_id)
-      .then((res) => {
-        setReviewComments(res);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
+    fetchReviewComments(review_id).then((res) => {
+      setReviewComments(res);
+      setIsLoading(false);
+    });
   }, [review_id]);
 
   const renderComments = () => {
