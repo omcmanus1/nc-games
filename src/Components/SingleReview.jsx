@@ -58,7 +58,7 @@ export default function SingleReview() {
           Likes: {singleReviewData.votes + userLike}
           <button
             className="like-button"
-            onClick={() => handleLikeClick(`/reviews/${review_id}qqww`, 1)}
+            onClick={() => handleLikeClick(`/reviews/${review_id}`, 1)}
             disabled={userLike === 1}
           >
             👍
