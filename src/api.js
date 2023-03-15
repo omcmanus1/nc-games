@@ -24,3 +24,10 @@ export const fetchReviewComments = (review_id) => {
     return comments;
   });
 };
+
+export const incrementVote = (path, increment) => {
+  return ncgamesApi.patch(path, { inc_votes: increment }).then((res) => {
+    const { review } = res.data;
+    return review[0].votes;
+  });
+};

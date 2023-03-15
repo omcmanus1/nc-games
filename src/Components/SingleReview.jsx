@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleReview } from "../api";
+import { fetchSingleReview, incrementVote } from "../api";
 import ReviewComments from "./ReviewComments";
 
 export default function SingleReview() {
@@ -8,6 +8,8 @@ export default function SingleReview() {
   const [singleReviewData, setSingleReviewData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [commentsClicked, setCommentsClicked] = useState(false);
+  const [userLike, setUserLike] = useState(0);
+  const [likeError, setLikeError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -17,8 +19,17 @@ export default function SingleReview() {
     });
   }, [review_id]);
 
-  const handleButtonClick = () => {
+  const handleCommentsClick = () => {
     setCommentsClicked(!commentsClicked);
+  };
+
+  const handleLikeClick = (path, increment) => {
+    setLikeError(false);
+    setUserLike(userLike + increment);
+    incrementVote(path, increment).catch((err) => {
+      setUserLike(0);
+      setLikeError(true);
+    });
   };
 
   if (isLoading) return <h2>Loading...</h2>;
@@ -43,14 +54,31 @@ export default function SingleReview() {
             singleReviewData.created_at.indexOf("T")
           )}
         </li>
-        <li>Likes: {singleReviewData.votes}</li>
+        <li>
+          Likes: {singleReviewData.votes + userLike}
+          <button
+            className="like-button"
+            onClick={() => handleLikeClick(`/reviews/${review_id}`, 1)}
+            disabled={userLike === 1}
+          >
+            👍
+          </button>
+          <button
+            className="like-button"
+            onClick={() => handleLikeClick(`/reviews/${review_id}`, -1)}
+            disabled={userLike === -1}
+          >
+            👎
+          </button>
+          {likeError ? <p className="error-message">Error Liking!!!</p> : null}
+        </li>
         <li>
           {commentsClicked ? (
-            <button className="comment-button" onClick={handleButtonClick}>
+            <button className="comment-button" onClick={handleCommentsClick}>
               Hide Comments
             </button>
           ) : (
-            <button className="comment-button" onClick={handleButtonClick}>
+            <button className="comment-button" onClick={handleCommentsClick}>
               Show Comments ({singleReviewData.comment_count})
             </button>
           )}
