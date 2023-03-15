@@ -28,7 +28,15 @@ export default function ReviewComments({ review_id }) {
   return (
     <>
       <ol className="comments-list">{renderComments()}</ol>
-      <button className="comment-button add-comment">Add Comment</button>
+      <form className="comment-form">
+        <label>Add a comment:</label>
+        <input placeholder="start typing..."></input>
+        <input
+          className="comment-button add-comment"
+          type="submit"
+          value="Add Comment"
+        ></input>
+      </form>
     </>
   );
 }
