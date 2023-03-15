@@ -25,5 +25,10 @@ export default function ReviewComments({ review_id }) {
 
   if (isLoading) return <h2>Loading...</h2>;
 
-  return <ol className="comments-list">{renderComments()}</ol>;
+  return (
+    <>
+      <ol className="comments-list">{renderComments()}</ol>
+      <button className="comment-button add-comment">Add Comment</button>
+    </>
+  );
 }

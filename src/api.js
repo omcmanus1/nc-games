@@ -31,3 +31,14 @@ export const incrementVote = (path, increment) => {
     return review[0].votes;
   });
 };
+
+export const postComment = (review_id, username, comment) => {
+  return ncgamesApi
+    .post(`/reviews/${review_id}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};

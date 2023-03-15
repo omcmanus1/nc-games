@@ -37,7 +37,7 @@ export default function SingleReview() {
   return (
     <section className="reviews-card">
       <h2>{singleReviewData.title}</h2>
-      <h3>({singleReviewData.owner})</h3>
+      <h3>(user: {singleReviewData.owner})</h3>
       <img
         className="review-image"
         src={singleReviewData.review_img_url}
@@ -74,11 +74,11 @@ export default function SingleReview() {
         </li>
         <li>
           {commentsClicked ? (
-            <button className="comment-button" onClick={handleCommentsClick}>
+            <button className="comment-button hide-comments" onClick={handleCommentsClick}>
               Hide Comments
             </button>
           ) : (
-            <button className="comment-button" onClick={handleCommentsClick}>
+            <button className="comment-button show-comments" onClick={handleCommentsClick}>
               Show Comments ({singleReviewData.comment_count})
             </button>
           )}
