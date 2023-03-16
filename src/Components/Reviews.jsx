@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 
 import ReviewsFilter from "./ReviewsFilter";
-import { fetchAllReviews } from "../api";
-import ReviewsCard from "./ReviewsCard";
+import { fetchReviews } from "../api";
+import ReviewCard from "./ReviewCard";
 
-export default function Reviews() {
+export default function Reviews({ category_name } = null) {
   const [reviewsData, setReviewsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAllReviews().then((reviews) => {
+    fetchReviews(category_name).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, []);
+  }, [category_name]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
       return (
-        <ReviewsCard
+        <ReviewCard
           value={JSON.stringify(review)}
           id={review.id}
           key={review.title}

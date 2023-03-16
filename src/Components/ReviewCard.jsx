@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ReviewsCard(reviewOutput) {
+export default function ReviewCard(reviewOutput) {
   const review = JSON.parse(reviewOutput.value);
   return (
     <Link to={`/reviews/${review.review_id}`}>
