@@ -4,8 +4,8 @@ import { fetchReviewComments, postComment } from "../api";
 export default function ReviewComments({ review_id }) {
   const [isLoading, setIsLoading] = useState(true);
   const [reviewComments, setReviewComments] = useState([]);
-  const [newComment, setNewComment] = useState("");
-  const [finalComment, setFinalComment] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [finalisedComment, setFinalisedComment] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -27,16 +27,16 @@ export default function ReviewComments({ review_id }) {
   };
 
   const handleCommentText = (e) => {
-    setNewComment(e.target.value);
+    setCommentText(e.target.value);
   };
 
   const handleSubmitComment = (e) => {
     setIsLoading(true);
     setErrorMessage("");
     e.preventDefault();
-    postComment(review_id, "grumpy19", newComment)
+    postComment(review_id, "grumpy19", commentText)
       .then((comment) => {
-        setFinalComment(newComment);
+        setFinalisedComment(commentText);
         setIsLoading(false);
         return comment;
       })
@@ -53,8 +53,8 @@ export default function ReviewComments({ review_id }) {
       <ul className="comments-list">
         {renderComments()}
         {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
-        {finalComment ? (
-          <li className="comments-list">{finalComment}</li>
+        {finalisedComment ? (
+          <li className="comments-list">{finalisedComment} (0 Likes)</li>
         ) : null}
       </ul>
       <form className="comment-form">
