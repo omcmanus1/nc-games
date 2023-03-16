@@ -126,7 +126,7 @@ a {
 }
 
 .comments-list {
-  list-style-type: square;
+  list-style-type: none;
   margin: 2% 10% 2% 10%;
 }
 
@@ -138,6 +138,10 @@ a {
 
 .error-message {
   color: red;
+}
+
+.success-message {
+  color: green;
 }
 
 .show-comments {

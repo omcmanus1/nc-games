@@ -6,6 +6,7 @@ export default function ReviewComments({ review_id }) {
   const [reviewComments, setReviewComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,6 +32,7 @@ export default function ReviewComments({ review_id }) {
 
   const handleSubmitComment = (e) => {
     e.preventDefault();
+    setSubmitted(false);
     if (commentText !== "") {
       setIsLoading(true);
       setErrorMessage("");
@@ -39,6 +41,7 @@ export default function ReviewComments({ review_id }) {
           setReviewComments([...reviewComments, comment]);
           setCommentText("");
           setIsLoading(false);
+          setSubmitted(true);
         })
         .catch((err) => {
           if (err.message) setErrorMessage(err.message);
@@ -50,10 +53,7 @@ export default function ReviewComments({ review_id }) {
 
   return (
     <>
-      <ul className="comments-list">
-        {renderComments()}
-        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
-      </ul>
+      <ul className="comments-list">{renderComments()}</ul>
       <form className="comment-form" onSubmit={handleSubmitComment}>
         <label htmlFor="submit-comment">Add a comment:</label>
         <input
@@ -66,10 +66,15 @@ export default function ReviewComments({ review_id }) {
         <button
           className="comment-button add-comment"
           value="Add Comment"
+          id="submit-button"
           disabled={isLoading}
         >
           Submit
         </button>
+        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
+        {submitted ? (
+          <p className="success-message">Comment Submitted!</p>
+        ) : null}
       </form>
     </>
   );
