@@ -40,6 +40,6 @@ export const postComment = (review_id, username, comment) => {
     })
     .then((res) => {
       const { comment } = res.data;
-      return comment[0].body;
+      return comment[0];
     });
 };

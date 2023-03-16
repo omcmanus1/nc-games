@@ -74,11 +74,17 @@ export default function SingleReview() {
         </li>
         <li>
           {commentsClicked ? (
-            <button className="comment-button hide-comments" onClick={handleCommentsClick}>
+            <button
+              className="comment-button hide-comments"
+              onClick={handleCommentsClick}
+            >
               Hide Comments
             </button>
           ) : (
-            <button className="comment-button show-comments" onClick={handleCommentsClick}>
+            <button
+              className="comment-button show-comments"
+              onClick={handleCommentsClick}
+            >
               Show Comments ({singleReviewData.comment_count})
             </button>
           )}

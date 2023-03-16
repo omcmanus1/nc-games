@@ -19,6 +19,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reviews/post-review" element={<PostReview />} />
+        <Route path="/*" element={<h2>Page Not Found!</h2>} />
       </Routes>
     </div>
   );
