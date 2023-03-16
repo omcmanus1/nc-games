@@ -6,7 +6,7 @@ import Navbar from "./Components/Navbar";
 import PostReview from "./Components/PostReview";
 import Reviews from "./Components/Reviews";
 import SingleReview from "./Components/SingleReview";
-import ReviewsByCategory from "./Components/ReviewsByCategory";
+// import ReviewsByCategory from "./Components/ReviewsByCategory";
 import Users from "./Components/Users";
 
 function App() {
@@ -17,10 +17,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
-        <Route
-          path="/reviews/category/:category_name"
-          element={<ReviewsByCategory />}
-        />
         <Route path="/categories" element={<Categories />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reviews/post-review" element={<PostReview />} />

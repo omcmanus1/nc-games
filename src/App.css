@@ -172,7 +172,7 @@ a {
   flex-direction: column;
 } */
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -200,4 +200,4 @@ a {
     cursor: pointer;
   }
 
-}
+} */

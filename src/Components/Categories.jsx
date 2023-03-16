@@ -14,7 +14,7 @@ export default function Categories() {
   const renderCategories = () => {
     return categories.map((category, index) => {
       return (
-        <Link key={category.slug} to={`/reviews/category/${category.slug}`}>
+        <Link key={category.slug} to={`/reviews?category=${category.slug}`}>
           <li key={index} className="word-art">
             {category.slug}
           </li>
