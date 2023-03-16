@@ -43,3 +43,10 @@ export const postComment = (review_id, username, comment) => {
       return comment[0];
     });
 };
+
+export const fetchCategories = () => {
+  return ncgamesApi.get("/categories").then((res) => {
+    const { categories } = res.data;
+    return categories;
+  });
+};

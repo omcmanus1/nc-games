@@ -1,3 +1,24 @@
+import { useEffect, useState } from "react";
+import { fetchCategories } from "../api";
+
 export default function Categories() {
-  return <h1>THESE ARE THE CATEGORIES</h1>;
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetchCategories().then((categoryArray) => {
+      setCategories(categoryArray);
+    });
+  }, []);
+
+  const renderCategories = () => {
+    return categories.map((category, index) => {
+      return <li key={index}>{category.slug}</li>;
+    });
+  };
+
+  return (
+    <>
+      <h1>CATEGORIES</h1>
+      <ul className="word-art">{renderCategories()}</ul>
+    </>
+  );
 }

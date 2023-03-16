@@ -156,6 +156,16 @@ a {
   color: green;
 }
 
+.word-art {
+  font-size: 80px;
+  font-family: cursive;
+  color: #ff6699;
+  text-shadow: 2px 2px 0px #f44336,
+    4px 4px 0px #2196f3,
+    6px 6px 0px #4caf50,
+    8px 8px 0px #ffc107;
+}
+
 /* .single-review-card {
   display: flex;
   flex-direction: column;
