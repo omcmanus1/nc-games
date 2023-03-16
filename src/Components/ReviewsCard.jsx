@@ -6,6 +6,7 @@ export default function ReviewsCard(reviewOutput) {
     <Link to={`/reviews/${review.review_id}`}>
       <section className="reviews-card">
         <h2>{review.title}</h2>
+        <h3>(user: {review.owner})</h3>
         <img
           className="review-image"
           src={review.review_img_url}
@@ -16,7 +17,6 @@ export default function ReviewsCard(reviewOutput) {
           <li>Category: {review.category}</li>
           <li>Likes: {review.votes}</li>
           <li>Comments: {review.comment_count}</li>
-          <li>Username: {review.owner}</li>
         </ul>
       </section>
     </Link>
