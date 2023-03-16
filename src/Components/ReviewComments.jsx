@@ -20,7 +20,7 @@ export default function ReviewComments({ review_id }) {
     return reviewComments.map((comment) => {
       return (
         <li className="comments-list" key={comment.comment_id}>
-          {comment.body} ({comment.votes} Likes)
+          [{comment.author}]: {comment.body} ({comment.votes} Likes)
         </li>
       );
     });
@@ -28,6 +28,11 @@ export default function ReviewComments({ review_id }) {
 
   const handleCommentText = (e) => {
     setCommentText(e.target.value);
+  };
+
+  const handleFormFocus = () => {
+    setErrorMessage("");
+    setSubmitted("");
   };
 
   const handleSubmitComment = (e) => {
@@ -54,7 +59,11 @@ export default function ReviewComments({ review_id }) {
   return (
     <>
       <ul className="comments-list">{renderComments()}</ul>
-      <form className="comment-form" onSubmit={handleSubmitComment}>
+      <form
+        className="comment-form"
+        onFocus={handleFormFocus}
+        onSubmit={handleSubmitComment}
+      >
         <label htmlFor="submit-comment">Add a comment:</label>
         <input
           id="submit-comment"
