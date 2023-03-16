@@ -15,7 +15,7 @@ export default function ReviewsFilter() {
         defaultValue=""
         onChange={ChooseFilter}
       >
-        <option id="default-option" value="" disabled hidden>
+        <option id="default-option" value="" disabled>
           Please Choose...
         </option>
         <option id="category" value="Category">

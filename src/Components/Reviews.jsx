@@ -33,9 +33,9 @@ export default function Reviews({ category_name } = null) {
 
   return (
     <section className="reviews-page">
-      <ReviewsFilter />
       <h1 className="reviews-title">Top Reviews</h1>
       {buildReviewCard()}
+      <ReviewsFilter />
     </section>
   );
 }
