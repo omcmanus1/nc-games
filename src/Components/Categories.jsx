@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { fetchCategories } from "../api";
 
 export default function Categories() {
@@ -11,14 +13,20 @@ export default function Categories() {
 
   const renderCategories = () => {
     return categories.map((category, index) => {
-      return <li key={index}>{category.slug}</li>;
+      return (
+        <Link key={category.slug} to={`/reviews/category/${category.slug}`}>
+          <li key={index} className="word-art">
+            {category.slug}
+          </li>
+        </Link>
+      );
     });
   };
 
   return (
     <>
       <h1>CATEGORIES</h1>
-      <ul className="word-art">{renderCategories()}</ul>
+      <ul>{renderCategories()}</ul>
     </>
   );
 }
