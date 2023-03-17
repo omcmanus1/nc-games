@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
-import ReviewsFilter from "./ReviewsFilter";
+import SortReviews from "./SortReviews";
 import { fetchReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 
@@ -12,6 +12,7 @@ export default function Reviews() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categoryQuery = searchParams.get("category");
+  const sortBy = searchParams.get("sort_by");
 
   useEffect(() => {
     setIsLoading(true);
@@ -34,13 +35,14 @@ export default function Reviews() {
     });
   };
 
+  console.log(sortBy);
   if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <section className="reviews-page">
+      <SortReviews setSearchParams={setSearchParams} />
       <h1 className="reviews-title">Top Reviews</h1>
       {buildReviewCard()}
-      <ReviewsFilter />
     </section>
   );
 }

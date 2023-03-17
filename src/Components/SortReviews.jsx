@@ -1,12 +1,14 @@
-export default function ReviewsFilter() {
+export default function SortReviews({ setSearchParams }) {
   const ChooseFilter = (e) => {
-    return e.target.value;
+    setSearchParams(
+      (currentParams) => `${currentParams}&sort_by=${e.target.value}`
+    );
   };
 
   return (
     <form className="reviews-filter">
       <label className="dropdown-label" htmlFor="filter-reviews">
-        Filter By:
+        Sort By:
       </label>
       <select
         className="dropdown"
@@ -18,11 +20,14 @@ export default function ReviewsFilter() {
         <option id="default-option" value="" disabled>
           Please Choose...
         </option>
-        <option id="category" value="Category">
-          Category
+        <option id="date" value="date">
+          Date
         </option>
-        <option id="owner" value="Owner">
-          Owner
+        <option id="comments" value="comments">
+          Comments
+        </option>
+        <option id="votes" value="votes">
+          Votes
         </option>
       </select>
     </form>
