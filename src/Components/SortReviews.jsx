@@ -1,9 +1,8 @@
-export default function SortReviews({ setSortOrder, setSearchParams }) {
+export default function SortReviews({ searchParams, setSearchParams }) {
   const ChooseFilter = (e) => {
-    setSortOrder(e.target.value);
-    // setSearchParams(
-    //   (currentParams) => `${currentParams}&sort_by=${e.target.value}`
-    // );
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set("sort_by", e.target.value);
+    setSearchParams(newSearchParams);
   };
 
   return (

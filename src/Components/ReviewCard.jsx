@@ -6,7 +6,10 @@ export default function ReviewCard(reviewOutput) {
     <Link to={`/reviews/${review.review_id}`}>
       <section className="reviews-card">
         <h2>{review.title}</h2>
-        <h3>(user: {review.owner})</h3>
+        <h3>
+          ({review.owner},{" "}
+          {review.created_at.substring(0, review.created_at.indexOf("T"))})
+        </h3>
         <img
           className="review-image"
           src={review.review_img_url}
