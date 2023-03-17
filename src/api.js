@@ -5,8 +5,8 @@ const ncgamesApi = axios.create({
 });
 
 export const fetchReviews = (category, sort_by) => {
-  // console.log(category);
-  // console.log(sort_by);
+  console.log(category);
+  console.log(sort_by);
   return ncgamesApi
     .get(`/reviews`, { params: { category, sort_by } })
     .then((res) => {

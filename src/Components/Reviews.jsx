@@ -16,11 +16,11 @@ export default function Reviews() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviews(categoryQuery).then((reviews) => {
+    fetchReviews(categoryQuery, sortBy).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, [category_name, categoryQuery]);
+  }, [category_name, categoryQuery, sortBy]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
@@ -36,7 +36,6 @@ export default function Reviews() {
   };
 
   if (isLoading) return <h2>Loading...</h2>;
-  console.log("searchParams >>>", sortBy);
 
   return (
     <section className="reviews-page">
