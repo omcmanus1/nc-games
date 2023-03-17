@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar";
 import PostReview from "./Components/PostReview";
 import Reviews from "./Components/Reviews";
 import SingleReview from "./Components/SingleReview";
+// import ReviewsByCategory from "./Components/ReviewsByCategory";
 import Users from "./Components/Users";
 
 function App() {

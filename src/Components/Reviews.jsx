@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import ReviewsFilter from "./ReviewsFilter";
-import { fetchAllReviews } from "../api";
-import ReviewsCard from "./ReviewsCard";
+import { fetchReviews } from "../api";
+import ReviewCard from "./ReviewCard";
 
 export default function Reviews() {
+  const { category_name } = useParams();
   const [reviewsData, setReviewsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const categoryQuery = searchParams.get("category");
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAllReviews().then((reviews) => {
+    fetchReviews(categoryQuery).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, []);
+  }, [category_name, categoryQuery]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
       return (
-        <ReviewsCard
+        <ReviewCard
           value={JSON.stringify(review)}
           id={review.id}
           key={review.title}
@@ -33,9 +38,9 @@ export default function Reviews() {
 
   return (
     <section className="reviews-page">
-      <ReviewsFilter />
       <h1 className="reviews-title">Top Reviews</h1>
       {buildReviewCard()}
+      <ReviewsFilter />
     </section>
   );
 }
