@@ -10,17 +10,18 @@ export default function Reviews() {
   const [reviewsData, setReviewsData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [sortOrder, setSortOrder] = useState("");
 
   const categoryQuery = searchParams.get("category");
   const sortBy = searchParams.get("sort_by");
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviews(categoryQuery).then((reviews) => {
+    fetchReviews(categoryQuery, sortBy).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, [category_name, categoryQuery]);
+  }, [category_name, categoryQuery, sortBy]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
@@ -35,12 +36,15 @@ export default function Reviews() {
     });
   };
 
-  console.log(sortBy);
   if (isLoading) return <h2>Loading...</h2>;
+  console.log(sortOrder)
 
   return (
     <section className="reviews-page">
-      <SortReviews setSearchParams={setSearchParams} />
+      <SortReviews
+        setSortOrder={setSortOrder}
+        setSearchParams={setSearchParams}
+      />
       <h1 className="reviews-title">Top Reviews</h1>
       {buildReviewCard()}
     </section>

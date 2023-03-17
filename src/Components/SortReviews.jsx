@@ -1,8 +1,9 @@
-export default function SortReviews({ setSearchParams }) {
+export default function SortReviews({ setSortOrder, setSearchParams }) {
   const ChooseFilter = (e) => {
-    setSearchParams(
-      (currentParams) => `${currentParams}&sort_by=${e.target.value}`
-    );
+    setSortOrder(e.target.value);
+    // setSearchParams(
+    //   (currentParams) => `${currentParams}&sort_by=${e.target.value}`
+    // );
   };
 
   return (
@@ -20,10 +21,10 @@ export default function SortReviews({ setSearchParams }) {
         <option id="default-option" value="" disabled>
           Please Choose...
         </option>
-        <option id="date" value="date">
+        <option id="date" value="created_at">
           Date
         </option>
-        <option id="comments" value="comments">
+        <option id="comments" value="comment_count">
           Comments
         </option>
         <option id="votes" value="votes">
