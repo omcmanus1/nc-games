@@ -23,9 +23,6 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         <option id="date" value="created_at">
           Date
         </option>
-        <option id="comments" value="comment_count">
-          Comments
-        </option>
         <option id="votes" value="votes">
           Votes
         </option>

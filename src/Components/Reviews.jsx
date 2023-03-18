@@ -43,7 +43,11 @@ export default function Reviews() {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      <h1 className="reviews-title">Top Reviews</h1>
+      {categoryQuery ? (
+        <h1 className="reviews-title">Category: {categoryQuery}</h1>
+      ) : (
+        <h1 className="reviews-title">All Reviews</h1>
+      )}
       {buildReviewCard()}
     </section>
   );
