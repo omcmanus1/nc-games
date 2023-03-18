@@ -10,11 +10,6 @@ export default function ReviewCard(reviewOutput) {
           ({review.owner},{" "}
           {review.created_at.substring(0, review.created_at.indexOf("T"))})
         </h3>
-        <img
-          className="review-image"
-          src={review.review_img_url}
-          alt={review.title}
-        />
         <ul className="review-details">
           <li>Designer: {review.designer}</li>
           <li>Category: {review.category}</li>

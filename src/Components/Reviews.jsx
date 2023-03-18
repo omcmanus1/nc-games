@@ -39,15 +39,16 @@ export default function Reviews() {
 
   return (
     <section className="reviews-page">
+      <h1 className="reviews-header">REVIEWS</h1>
+      {categoryQuery ? (
+        <h2 className="reviews-subtitle">(Category: {categoryQuery})</h2>
+      ) : (
+        <h2 className="reviews-subtitle">(All Categories)</h2>
+      )}
       <SortReviews
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      {categoryQuery ? (
-        <h1 className="reviews-title">Category: {categoryQuery}</h1>
-      ) : (
-        <h1 className="reviews-title">All Reviews</h1>
-      )}
       {buildReviewCard()}
     </section>
   );

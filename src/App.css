@@ -75,8 +75,19 @@ a {
   color: #9E8D7C;
 }
 
-.reviews-title {
-  margin: 2%;
+.reviews-page {
+  text-align: center;
+}
+
+.reviews-header {
+    font-family: Arial, sans-serif;
+    font-size: 4em;
+    font-weight: bold;
+    color:#2196f3;
+  }
+
+.reviews-subtitle {
+  margin: 0.2%;
 }
 
 .reviews-filter {
@@ -97,10 +108,6 @@ a {
   height: 3vh;
   text-align: center;
   padding: 1rem;
-}
-
-.reviews-page {
-  text-align: center;
 }
 
 .reviews-card {
