@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
-import ReviewsFilter from "./ReviewsFilter";
+import SortReviews from "./SortReviews";
 import { fetchReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 
@@ -12,14 +12,17 @@ export default function Reviews() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categoryQuery = searchParams.get("category");
+  const sortBy = searchParams.get("sort_by");
+  const orderBy = searchParams.get("order");
+  console.log("orderBy >>", orderBy);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviews(categoryQuery).then((reviews) => {
+    fetchReviews(categoryQuery, sortBy, orderBy).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, [category_name, categoryQuery]);
+  }, [category_name, categoryQuery, sortBy, orderBy]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
@@ -38,9 +41,17 @@ export default function Reviews() {
 
   return (
     <section className="reviews-page">
-      <h1 className="reviews-title">Top Reviews</h1>
+      <h1 className="reviews-header">REVIEWS</h1>
+      {categoryQuery ? (
+        <h2 className="reviews-subtitle">(Category: {categoryQuery})</h2>
+      ) : (
+        <h2 className="reviews-subtitle">(All Categories)</h2>
+      )}
+      <SortReviews
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
       {buildReviewCard()}
-      <ReviewsFilter />
     </section>
   );
 }

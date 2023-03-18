@@ -6,13 +6,12 @@ export default function ReviewCard(reviewOutput) {
     <Link to={`/reviews/${review.review_id}`}>
       <section className="reviews-card">
         <h2>{review.title}</h2>
-        <h3>(user: {review.owner})</h3>
-        <img
-          className="review-image"
-          src={review.review_img_url}
-          alt={review.title}
-        />
+        <h3>({review.owner})</h3>
         <ul className="review-details">
+          <li>
+            Posted:{" "}
+            {review.created_at.substring(0, review.created_at.indexOf("T"))}
+          </li>
           <li>Designer: {review.designer}</li>
           <li>Category: {review.category}</li>
           <li>Likes: {review.votes}</li>
