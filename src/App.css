@@ -3,7 +3,6 @@
 * {
   vertical-align: baseline;
   align-content: center;
-  font-family: 'Roboto', 'Courier';
   background-color: #F3F2F3;
   margin: 0;
   padding: 0;
@@ -80,7 +79,6 @@ a {
 }
 
 .reviews-header {
-    font-family: Arial, sans-serif;
     font-size: 4em;
     font-weight: bold;
     color:#2196f3;
@@ -91,20 +89,19 @@ a {
 }
 
 .reviews-filter {
-  display: block;
-  margin: 0;
-  padding: 0;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1%;
 }
 
 .dropdown-label {
   display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 
 .dropdown {
-  width: 40vw;
+  width: 15vw;
   height: 3vh;
   text-align: center;
   padding: 1rem;
