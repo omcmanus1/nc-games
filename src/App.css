@@ -107,6 +107,13 @@ a {
   padding: 1rem;
 }
 
+.order-by-button {
+  margin-left: 0.5%;
+  padding-left: 0.8%;
+  padding-right: 0.8%;
+  border-radius: 18%;
+}
+
 .reviews-card {
   margin: 3%;
 }

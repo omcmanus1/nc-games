@@ -13,14 +13,16 @@ export default function Reviews() {
 
   const categoryQuery = searchParams.get("category");
   const sortBy = searchParams.get("sort_by");
+  const orderBy = searchParams.get("order");
+  console.log("orderBy >>", orderBy);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviews(categoryQuery, sortBy).then((reviews) => {
+    fetchReviews(categoryQuery, sortBy, orderBy).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });
-  }, [category_name, categoryQuery, sortBy]);
+  }, [category_name, categoryQuery, sortBy, orderBy]);
 
   const buildReviewCard = () => {
     return reviewsData.map((review) => {
