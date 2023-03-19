@@ -3,14 +3,9 @@ import { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
 import { fetchReviews } from "../api";
 
-export default function ReviewsOutput({
-  categoryQuery,
-  sortBy,
-  orderBy,
-  setReviewsData,
-  reviewsData,
-}) {
+export default function ReviewsOutput({ categoryQuery, sortBy, orderBy }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [reviewsData, setReviewsData] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);

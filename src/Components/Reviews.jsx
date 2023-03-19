@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import SortReviews from "./SortReviews";
 import ReviewsOutput from "./ReviewsOutput";
 
 export default function Reviews() {
-  const [reviewsData, setReviewsData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categoryQuery = searchParams.get("category");
@@ -32,8 +30,6 @@ export default function Reviews() {
         categoryQuery={categoryQuery}
         sortBy={sortBy}
         orderBy={orderBy}
-        setReviewsData={setReviewsData}
-        reviewsData={reviewsData}
       />
     </section>
   );
