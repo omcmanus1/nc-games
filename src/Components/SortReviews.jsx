@@ -14,6 +14,7 @@ export default function SortReviews({ searchParams, setSearchParams }) {
     // newSearchParams.set("order", descending ? "desc" : "asc");
     // setSearchParams(newSearchParams);
   };
+  console.log(descending);
 
   return (
     <form className="reviews-filter">
