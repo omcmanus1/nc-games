@@ -9,10 +9,10 @@ export default function SortReviews({ searchParams, setSearchParams }) {
     setSearchParams(newSearchParams);
   };
 
-  const handleOrderClick = () => {
+  const handleOrderClick = (e) => {
     setDescending(!descending);
-    // newSearchParams.set("order", descending ? "desc" : "asc");
-    // setSearchParams(newSearchParams);
+    newSearchParams.set("order", e.target.value);
+    setSearchParams(newSearchParams);
   };
 
   return (
@@ -37,7 +37,7 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         <button
           className="order-by-button"
           type="button"
-          value="desc"
+          value="asc"
           onClick={handleOrderClick}
         >
           &darr;
@@ -46,7 +46,7 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         <button
           className="order-by-button"
           type="button"
-          value="asc"
+          value="desc"
           onClick={handleOrderClick}
         >
           &uarr;

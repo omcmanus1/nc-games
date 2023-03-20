@@ -3,7 +3,6 @@ import Reviews from "./Reviews";
 
 export default function ReviewsByCategory() {
   const category_name = useParams();
-  console.log(category_name);
 
   return (
     <>
