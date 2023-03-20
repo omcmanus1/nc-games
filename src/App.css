@@ -106,6 +106,13 @@ a {
   text-align: center;
 }
 
+.category-dropdown {
+  width: 27vw;
+  height: 4vh;
+  text-align:center;
+  align-items: center;
+}
+
 .order-by-button {
   width: 35px;
   height: 34px;
@@ -171,8 +178,7 @@ a {
 .word-art {
   font-size: 60px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: #ba4fb9;
-  text-shadow: 2px 2px 0px #f44336,
+  text-shadow:
     4px 4px 0px #2196f3,
     6px 6px 0px #4caf50,
     8px 8px 0px #ffc107;

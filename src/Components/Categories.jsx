@@ -5,6 +5,7 @@ import { fetchCategories } from "../api";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
+  
   useEffect(() => {
     fetchCategories().then((categoryArray) => {
       setCategories(categoryArray);
