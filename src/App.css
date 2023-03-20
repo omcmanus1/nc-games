@@ -60,8 +60,8 @@ a {
 
 .nav-link {
   font-size: 1rem;
-  font-weight: 400;
-  color: #000000;
+  font-weight: 560;
+  color: #155a93;
 }
 
 .nav-link:hover {
@@ -78,10 +78,11 @@ a {
   text-align: center;
 }
 
-.reviews-header {
-    font-size: 4em;
+.page-header {
+    font-size: 3em;
     font-weight: bold;
-    color:#2196f3;
+    color:#155a93;
+    padding: 1.5%;
   }
 
 .reviews-subtitle {
@@ -107,10 +108,11 @@ a {
 }
 
 .category-dropdown {
-  width: 27vw;
-  height: 4vh;
+  width: 38vw;
+  height: 6vh;
   text-align:center;
   align-items: center;
+  font-size: 1em;
 }
 
 .order-by-button {

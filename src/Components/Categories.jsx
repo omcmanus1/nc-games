@@ -5,7 +5,7 @@ import { fetchCategories } from "../api";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
-  
+
   useEffect(() => {
     fetchCategories().then((categoryArray) => {
       setCategories(categoryArray);
@@ -26,7 +26,7 @@ export default function Categories() {
 
   return (
     <>
-      <h1>CATEGORIES</h1>
+      <h1 className="page-header">CATEGORIES</h1>
       <ul>{renderCategories()}</ul>
     </>
   );

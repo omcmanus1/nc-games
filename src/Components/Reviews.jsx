@@ -13,7 +13,7 @@ export default function Reviews() {
 
   return (
     <section className="reviews-page">
-      <h1 className="reviews-header">REVIEWS</h1>
+      <h1 className="page-header">REVIEWS</h1>
       <CategoryFilter
         searchParams={searchParams}
         setSearchParams={setSearchParams}

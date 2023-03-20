@@ -13,7 +13,11 @@ export default function CategoryFilter({ searchParams, setSearchParams }) {
 
   const renderDropdown = () => {
     return categories.map((category, index) => {
-      return <option key={index}>{category.slug}</option>;
+      return (
+        <option key={index} value={category.slug}>
+          {category.slug.toUpperCase()}
+        </option>
+      );
     });
   };
 
