@@ -1,14 +1,12 @@
 import { useState } from "react";
 
 export default function SortReviews({ searchParams, setSearchParams }) {
-  const [sortedBy, setSortedBy] = useState("created_at");
   const [descending, setDescending] = useState(true);
   const newSearchParams = new URLSearchParams(searchParams);
 
   const ChooseFilter = (e) => {
     newSearchParams.set("sort_by", e.target.value);
     setSearchParams(newSearchParams);
-    setSortedBy(e.target.value);
   };
 
   const handleOrderClick = () => {
@@ -26,7 +24,6 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         className="dropdown"
         name="filters"
         id="filter-reviews"
-        value={sortedBy}
         onChange={ChooseFilter}
       >
         <option id="date" value="created_at">
