@@ -35,6 +35,7 @@ export default function CategoryFilter({ searchParams, setSearchParams }) {
         id="category_filter"
         onChange={ChooseCategory}
       >
+        <option value="">ALL CATEGORIES</option>
         {renderDropdown()}
       </select>
     </form>
