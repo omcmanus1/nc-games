@@ -12,7 +12,6 @@ export default function Reviews() {
 
   return (
     <section className="reviews-page">
-      {/* keep headers, filter and sort options here (avoid re-render) */}
       <h1 className="reviews-header">REVIEWS</h1>
       {categoryQuery ? (
         <h2 className="reviews-subtitle">(Category: {categoryQuery})</h2>
@@ -23,9 +22,6 @@ export default function Reviews() {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      {/* move entire reviews data output into ReviewsOutput 
-      along with useEffect to only trigger re-render
-      for updated reivews cards */}
       <ReviewsOutput
         categoryQuery={categoryQuery}
         sortBy={sortBy}

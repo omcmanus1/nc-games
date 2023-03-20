@@ -14,7 +14,7 @@ export default function ReviewCard(reviewOutput) {
           </li>
           <li>Designer: {review.designer}</li>
           <li>Category: {review.category}</li>
-          <li>Likes: {review.votes}</li>
+          <li>Votes: {review.votes}</li>
           <li>Comments: {review.comment_count}</li>
         </ul>
       </section>

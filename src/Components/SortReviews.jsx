@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 export default function SortReviews({ searchParams, setSearchParams }) {
+  const [sortedBy, setSortedBy] = useState("created_at");
   const [descending, setDescending] = useState(true);
   const newSearchParams = new URLSearchParams(searchParams);
 
   const ChooseFilter = (e) => {
     newSearchParams.set("sort_by", e.target.value);
     setSearchParams(newSearchParams);
+    setSortedBy(e.target.value);
   };
 
   const handleOrderClick = () => {
@@ -14,7 +16,6 @@ export default function SortReviews({ searchParams, setSearchParams }) {
     // newSearchParams.set("order", descending ? "desc" : "asc");
     // setSearchParams(newSearchParams);
   };
-  console.log(descending);
 
   return (
     <form className="reviews-filter">
@@ -25,12 +26,9 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         className="dropdown"
         name="filters"
         id="filter-reviews"
-        defaultValue=""
+        value={sortedBy}
         onChange={ChooseFilter}
       >
-        <option id="default-option" value="" disabled>
-          Please Choose...
-        </option>
         <option id="date" value="created_at">
           Date
         </option>

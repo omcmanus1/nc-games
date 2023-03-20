@@ -102,12 +102,13 @@ a {
 
 .dropdown {
   width: 15vw;
-  height: 3vh;
+  height: 4vh;
   text-align: center;
-  padding: 1rem;
 }
 
 .order-by-button {
+  width: 35px;
+  height: 34px;
   margin-left: 0.5%;
   padding-left: 0.8%;
   padding-right: 0.8%;
