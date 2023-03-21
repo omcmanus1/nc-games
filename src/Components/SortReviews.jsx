@@ -1,8 +1,8 @@
-import { useState } from "react";
-
 export default function SortReviews({ searchParams, setSearchParams }) {
-  const [descending, setDescending] = useState(true);
+  const currentSortBy = searchParams.get("sort_by");
+  const currentOrder = searchParams.get("order");
   const newSearchParams = new URLSearchParams(searchParams);
+  if (!currentSortBy) newSearchParams.set("sort_by", "created_at");
 
   const ChooseFilter = (e) => {
     newSearchParams.set("sort_by", e.target.value);
@@ -10,7 +10,6 @@ export default function SortReviews({ searchParams, setSearchParams }) {
   };
 
   const handleOrderClick = (e) => {
-    setDescending(!descending);
     newSearchParams.set("order", e.target.value);
     setSearchParams(newSearchParams);
   };
@@ -24,6 +23,7 @@ export default function SortReviews({ searchParams, setSearchParams }) {
         className="dropdown"
         name="filters"
         id="filter-reviews"
+        value={currentSortBy ? currentSortBy : "created_at"}
         onChange={ChooseFilter}
       >
         <option id="date" value="created_at">
@@ -33,7 +33,7 @@ export default function SortReviews({ searchParams, setSearchParams }) {
           Votes
         </option>
       </select>
-      {descending ? (
+      {currentOrder !== "asc" ? (
         <button
           className="order-by-button"
           type="button"
