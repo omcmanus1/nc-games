@@ -4,6 +4,7 @@ import { fetchCategories } from "../api";
 
 export default function CategoryFilter({ searchParams, setSearchParams }) {
   const [categories, setCategories] = useState([]);
+  const currentCategory = searchParams.get("category");
 
   useEffect(() => {
     fetchCategories().then((categoryArray) => {
@@ -33,6 +34,7 @@ export default function CategoryFilter({ searchParams, setSearchParams }) {
         className="category-dropdown"
         name="filters"
         id="category_filter"
+        value={currentCategory ? currentCategory : "All Categories"}
         onChange={ChooseCategory}
       >
         <option value="">ALL CATEGORIES</option>
