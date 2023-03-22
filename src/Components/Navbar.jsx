@@ -24,8 +24,8 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/users" className="nav-link">
-              Users
+            <Link to="/log-in" className="nav-link">
+              Log In
             </Link>
           </li>
           <li className="nav-item">

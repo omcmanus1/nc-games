@@ -17,7 +17,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/log-in" element={<Users />} />
         <Route path="/reviews/post-review" element={<PostReview />} />
         <Route path="/*" element={<h2>Page Not Found!</h2>} />
       </Routes>
