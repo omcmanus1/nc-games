@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import { UserContext } from "../contexts/Users";
 
 import { fetchUsers } from "../api";
 
 export default function Users() {
   const [isLoading, setIsLoading] = useState(false);
   const [users, setUsers] = useState([]);
-  // USE CONTEXT API INSTEAD!!!
-  const [loggedInUser, setLoggedInUser] = useState("");
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,7 +19,7 @@ export default function Users() {
   }, []);
 
   const logIn = (e) => {
-    setLoggedInUser(e.target.value);
+    setLoggedInUser({ username: e.target.value });
   };
 
   const renderUserCard = () => {
