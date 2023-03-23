@@ -33,6 +33,7 @@ export default function NavBar() {
               Post A Review
             </Link>
           </li>
+          {/* TODO: add log out functionality */}
           {loggedInUser.username ? (
             <li className="nav-item">
               <Link to="/log-in" className="nav-link">

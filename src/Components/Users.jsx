@@ -1,14 +1,13 @@
 import { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
 
 import { UserContext } from "../contexts/Users";
-
 import { fetchUsers } from "../api";
 
 export default function Users() {
   const [isLoading, setIsLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,7 +32,11 @@ export default function Users() {
           />
           <h2>{user.username}</h2>
           <h3>({user.name})</h3>
-          <Link>
+          {loggedInUser.username === user.username ? (
+            <button className="logged-in-button" value={user.username}>
+              Logged In
+            </button>
+          ) : (
             <button
               className="login-button"
               value={user.username}
@@ -41,7 +44,7 @@ export default function Users() {
             >
               Log In
             </button>
-          </Link>
+          )}
         </li>
       );
     });

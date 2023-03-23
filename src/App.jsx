@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Categories from "./Components/Categories";
@@ -8,11 +7,8 @@ import PostReview from "./Components/PostReview";
 import Reviews from "./Components/Reviews";
 import SingleReview from "./Components/SingleReview";
 import Users from "./Components/Users";
-import { UserContext } from "./contexts/Users";
 
 function App() {
-  const loggedInUser = useContext(UserContext);
-
   return (
     <div className="App">
       <Navbar />
