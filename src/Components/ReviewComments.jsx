@@ -9,6 +9,7 @@ export default function ReviewComments({ review_id }) {
   const [commentText, setCommentText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [commentsDeleted, setCommentsDeleted] = useState([]);
   const [loggedInUser] = useContext(UserContext);
 
   useEffect(() => {
@@ -21,22 +22,30 @@ export default function ReviewComments({ review_id }) {
 
   const renderComments = () => {
     return reviewComments.map((comment) => {
-      return (
-        <li className="comments-list" key={comment.comment_id}>
-          [{comment.author}]: {comment.body} ({comment.votes} Likes)
-          {comment.author === loggedInUser.username ? (
-            <button
-              className="comment-button hide-comments"
-              onClick={(e) => {
-                e.preventDefault();
-                deleteComment(comment.comment_id);
-              }}
-            >
-              Delete
-            </button>
-          ) : null}
-        </li>
-      );
+      if (!commentsDeleted.includes(comment.comment_id)) {
+        return (
+          <li className="comments-list" key={comment.comment_id}>
+            [{comment.author}]: {comment.body} ({comment.votes} Likes)
+            {comment.author === loggedInUser.username ? (
+              <button
+                className="comment-button red-text"
+                onClick={(e) => {
+                  e.preventDefault();
+                  deleteComment(comment.comment_id);
+                  setCommentsDeleted([...commentsDeleted, comment.comment_id]);
+                }}
+              >
+                Delete
+              </button>
+            ) : null}
+          </li>
+        );
+      } else
+        return (
+          <li key={comment.comment_id} className="red-text">
+            Comment Deleted!
+          </li>
+        );
     });
   };
 
@@ -94,7 +103,7 @@ export default function ReviewComments({ review_id }) {
         >
           Submit
         </button>
-        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
+        {errorMessage ? <p className="red-text">{errorMessage}</p> : null}
         {submitted ? (
           <p className="success-message">Comment Submitted!</p>
         ) : null}
