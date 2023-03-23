@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleReview, incrementVote } from "../api";
+
 import ReviewComments from "./ReviewComments";
+import { fetchSingleReview, incrementVote } from "../api";
 
 export default function SingleReview() {
   const { review_id } = useParams();
