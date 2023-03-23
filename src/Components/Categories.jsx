@@ -5,10 +5,13 @@ import { fetchCategories } from "../api";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchCategories().then((categoryArray) => {
       setCategories(categoryArray);
+      setIsLoading(false);
     });
   }, []);
 
@@ -27,6 +30,7 @@ export default function Categories() {
   return (
     <>
       <h1 className="page-header">CATEGORIES</h1>
+      {isLoading ? <h2>Loading...</h2> : null}
       <ul>{renderCategories()}</ul>
     </>
   );

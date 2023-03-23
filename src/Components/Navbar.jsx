@@ -28,12 +28,12 @@ export default function NavBar() {
               Categories
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link to="/reviews/post-review" className="nav-link">
               Post A Review
             </Link>
-          </li>
-          {/* TODO: add log out functionality */}
+          </li> */}
+          {/* TODO: add log out functionality? */}
           {loggedInUser.username ? (
             <li className="nav-item">
               <Link to="/log-in" className="nav-link">

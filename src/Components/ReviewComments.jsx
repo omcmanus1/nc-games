@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
+import { UserContext } from "../contexts/Users";
 import { fetchReviewComments, postComment } from "../api";
 
 export default function ReviewComments({ review_id }) {
@@ -7,6 +9,8 @@ export default function ReviewComments({ review_id }) {
   const [commentText, setCommentText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser.username);
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,7 +45,7 @@ export default function ReviewComments({ review_id }) {
     if (commentText !== "") {
       setIsLoading(true);
       setErrorMessage("");
-      postComment(review_id, "grumpy19", commentText)
+      postComment(review_id, loggedInUser.username, commentText)
         .then((comment) => {
           setReviewComments([...reviewComments, comment]);
           setCommentText("");
