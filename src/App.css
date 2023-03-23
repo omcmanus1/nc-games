@@ -157,7 +157,7 @@ a {
   margin: 0.2%;
 }
 
-.error-message {
+.red-text {
   color: red;
 }
 
@@ -167,10 +167,6 @@ a {
 
 .show-comments {
   color: green;
-}
-
-.hide-comments {
-  color: red;
 }
 
 .add-comment {

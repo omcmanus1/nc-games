@@ -58,3 +58,7 @@ export const fetchUsers = () => {
     return users;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return ncgamesApi.delete(`/comments/${comment_id}`);
+};

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleReview, incrementVote } from "../api";
+
 import ReviewComments from "./ReviewComments";
+import { fetchSingleReview, incrementVote } from "../api";
 
 export default function SingleReview() {
   const { review_id } = useParams();
@@ -70,12 +71,12 @@ export default function SingleReview() {
           >
             👎
           </button>
-          {likeError ? <p className="error-message">Error Liking!!!</p> : null}
+          {likeError ? <p className="red-text">Error Liking!!!</p> : null}
         </li>
         <li>
           {commentsClicked ? (
             <button
-              className="comment-button hide-comments"
+              className="comment-button red-text"
               onClick={handleCommentsClick}
             >
               Hide Comments
