@@ -82,32 +82,36 @@ export default function ReviewComments({ review_id }) {
   return (
     <>
       <ul className="comments-list">{renderComments()}</ul>
-      <form
-        className="comment-form"
-        onFocus={handleFormFocus}
-        onSubmit={handleSubmitComment}
-      >
-        <label htmlFor="submit-comment">Add a comment:</label>
-        <input
-          id="submit-comment"
-          placeholder="start typing..."
-          value={commentText}
-          onChange={handleCommentText}
-          disabled={isLoading}
-        ></input>
-        <button
-          className="comment-button add-comment"
-          value="Add Comment"
-          id="submit-button"
-          disabled={isLoading}
+      {loggedInUser.username ? (
+        <form
+          className="comment-form"
+          onFocus={handleFormFocus}
+          onSubmit={handleSubmitComment}
         >
-          Submit
-        </button>
-        {errorMessage ? <p className="red-text">{errorMessage}</p> : null}
-        {submitted ? (
-          <p className="success-message">Comment Submitted!</p>
-        ) : null}
-      </form>
+          <label htmlFor="submit-comment">Add a comment:</label>
+          <input
+            id="submit-comment"
+            placeholder="start typing..."
+            value={commentText}
+            onChange={handleCommentText}
+            disabled={isLoading}
+          ></input>
+          <button
+            className="comment-button add-comment"
+            value="Add Comment"
+            id="submit-button"
+            disabled={isLoading}
+          >
+            Submit
+          </button>
+          {errorMessage ? <p className="red-text">{errorMessage}</p> : null}
+          {submitted ? (
+            <p className="success-message">Comment Submitted!</p>
+          ) : null}
+        </form>
+      ) : (
+        <p className="red-text">LOG IN TO POST A COMMENT</p>
+      )}
     </>
   );
 }
