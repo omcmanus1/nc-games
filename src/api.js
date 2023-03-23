@@ -51,3 +51,10 @@ export const fetchCategories = () => {
     return categories;
   });
 };
+
+export const fetchUsers = () => {
+  return ncgamesApi.get("/users").then((res) => {
+    const { users } = res.data;
+    return users;
+  });
+};
