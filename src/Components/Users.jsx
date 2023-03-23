@@ -7,7 +7,6 @@ export default function Users() {
   const [isLoading, setIsLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser);
 
   useEffect(() => {
     setIsLoading(true);
