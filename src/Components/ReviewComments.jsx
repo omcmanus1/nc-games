@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 
 import { UserContext } from "../contexts/Users";
-import { fetchReviewComments, postComment } from "../api";
+import { deleteComment, fetchReviewComments, postComment } from "../api";
 
 export default function ReviewComments({ review_id }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -9,8 +9,7 @@ export default function ReviewComments({ review_id }) {
   const [commentText, setCommentText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser.username);
+  const [loggedInUser] = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -25,6 +24,17 @@ export default function ReviewComments({ review_id }) {
       return (
         <li className="comments-list" key={comment.comment_id}>
           [{comment.author}]: {comment.body} ({comment.votes} Likes)
+          {comment.author === loggedInUser.username ? (
+            <button
+              className="comment-button hide-comments"
+              onClick={(e) => {
+                e.preventDefault();
+                deleteComment(comment.comment_id);
+              }}
+            >
+              Delete
+            </button>
+          ) : null}
         </li>
       );
     });
