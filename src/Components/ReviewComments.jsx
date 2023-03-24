@@ -54,6 +54,7 @@ export default function ReviewComments({ review_id }) {
       <ul className="comments-list">{renderComments()}</ul>
       {loggedInUser.username ? (
         <SubmitCommentForm
+          review_id={review_id}
           reviewComments={reviewComments}
           setReviewComments={setReviewComments}
         />

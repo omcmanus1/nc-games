@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
 
 import { UserContext } from "../contexts/Users";
 import { postComment } from "../api";
 
 export default function SubmitCommentForm({
+  review_id,
   reviewComments,
   setReviewComments,
 }) {
@@ -13,7 +13,6 @@ export default function SubmitCommentForm({
   const [errorMessage, setErrorMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loggedInUser] = useContext(UserContext);
-  const { review_id } = useParams();
 
   const handleCommentText = (e) => {
     setCommentText(e.target.value);
