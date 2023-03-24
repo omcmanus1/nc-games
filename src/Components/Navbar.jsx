@@ -1,10 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { UserContext } from "../contexts/Users";
+import { fetchUsers } from "../api";
 
 export default function NavBar() {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
+  const [userDetails, setuserDetails] = useState({});
+
+  useEffect(() => {
+    fetchUsers().then((userArray) => {
+      setuserDetails(
+        [...userArray].filter((user) => {
+          return loggedInUser.username === user.username;
+        })[0]
+      );
+    });
+  }, [loggedInUser]);
 
   return (
     <header className="header">
@@ -13,11 +25,6 @@ export default function NavBar() {
           NC GAMES
         </Link>
         <ul className="nav-menu">
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
           <li className="nav-item">
             <Link to="/reviews" className="nav-link">
               Reviews
@@ -28,25 +35,30 @@ export default function NavBar() {
               Categories
             </Link>
           </li>
-          {/* <li className="nav-item">
-            <Link to="/reviews/post-review" className="nav-link">
-              Post A Review
-            </Link>
-          </li> */}
-          {/* TODO: add log out functionality? */}
-          {loggedInUser.username ? (
-            <li className="nav-item">
-              <Link to="/log-in" className="nav-link">
-                <p>Switch User</p>
-                <p>({loggedInUser.username})</p>
-              </Link>
-            </li>
+          {userDetails ? (
+            <>
+              <li className="nav-item">
+                <Link to="/log-in" className="nav-link">
+                  Switch User
+                </Link>
+              </li>
+              <li className="nav-item">
+                <img
+                  src={userDetails.avatar_url}
+                  alt={userDetails.username}
+                  className="user-icon"
+                />
+                <p>({userDetails.username})</p>
+              </li>
+            </>
           ) : (
-            <li className="nav-item">
-              <Link to="/log-in" className="nav-link">
-                Log In
-              </Link>
-            </li>
+            <>
+              <li className="nav-item">
+                <Link to="/log-in" className="nav-link">
+                  Log In
+                </Link>
+              </li>
+            </>
           )}
         </ul>
         <div className="hamburger">

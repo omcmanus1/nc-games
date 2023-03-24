@@ -74,6 +74,10 @@ a {
   color: #9E8D7C;
 }
 
+.user-icon {
+  max-height: 40px;
+}
+
 .reviews-page {
   text-align: center;
 }

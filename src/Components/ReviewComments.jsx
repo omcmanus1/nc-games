@@ -40,7 +40,7 @@ export default function ReviewComments({ review_id }) {
         );
       } else
         return (
-          <li key={comment.comment_id} className="red-text">
+          <li key={comment.comment_id} className="comments-list red-text">
             Comment Deleted!
           </li>
         );
