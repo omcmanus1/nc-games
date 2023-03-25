@@ -39,11 +39,15 @@ export default function SingleReview() {
     <section className="reviews-card">
       <h2>{singleReviewData.title}</h2>
       <h3>(user: {singleReviewData.owner})</h3>
-      <img
-        className="review-image"
-        src={singleReviewData.review_img_url}
-        alt={singleReviewData.title}
-      />
+      {singleReviewData.review_img_url ? (
+        <img
+          className="review-image"
+          src={singleReviewData.review_img_url}
+          alt={singleReviewData.title}
+        />
+      ) : (
+        <p>Loading...</p>
+      )}
       <p className="review-body">{singleReviewData.review_body}</p>
       <ul className="review-details">
         <li>Game Designer: {singleReviewData.designer}</li>
