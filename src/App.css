@@ -141,6 +141,12 @@ a {
 
 .reviews-card {
   margin: 3%;
+  color: black;
+}
+
+.reviews-card:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 .review-image {
@@ -191,11 +197,17 @@ a {
 .word-art {
   font-size: 60px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: darkmagenta;
   text-shadow:
-    4px 4px 0px #2196f3,
-    6px 6px 0px #4caf50,
-    8px 8px 0px #ffc107;
+  4px 4px 0px #2196f3,
+  6px 6px 0px #4caf50,
+  8px 8px 0px #ffc107;
   text-decoration: none;
+}
+
+.word-art:visited {
+  text-decoration: none;
+  color: none;
 }
 
 .users-list {
