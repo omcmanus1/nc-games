@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { UserContext } from "../contexts/Users";
 import { fetchUsers } from "../api";
+import dice from "../assets/dice.png";
+import guest from "../assets/guest.png";
 
 export default function NavBar() {
   const [loggedInUser] = useContext(UserContext);
@@ -21,6 +23,7 @@ export default function NavBar() {
     <header className="header">
       <nav className="navbar">
         <Link to="/" className="nav-link">
+          <img src={dice} alt="dice-logo" className="navbar-icon" />
           NC GAMES
         </Link>
         <ul className="nav-menu">
@@ -45,7 +48,7 @@ export default function NavBar() {
                 <img
                   src={userDetails.avatar_url}
                   alt={userDetails.username}
-                  className="user-icon"
+                  className="navbar-icon"
                 />
               </li>
             </>
@@ -57,7 +60,7 @@ export default function NavBar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <p className="nav-link">(Guest)</p>
+                <img src={guest} alt="guest-user" className="navbar-icon" />
               </li>
             </>
           )}

@@ -59,6 +59,8 @@ a {
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   font-weight: 560;
   color: #155a93;
@@ -74,8 +76,9 @@ a {
   color: #9E8D7C;
 }
 
-.user-icon {
+.navbar-icon {
   max-height: 40px;
+  margin: 2%;
 }
 
 .reviews-page {
@@ -91,6 +94,10 @@ a {
 
 .home-subtitle {
   margin: 1.5%;
+}
+
+.homepage-logo {
+  object-fit: contain;
 }
 
 .reviews-subtitle {
