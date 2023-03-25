@@ -2,6 +2,8 @@
 
 **The app is a review hosting site for popular board/table games, and allows users to browse anonymously or log in to interact with various features.**
 
+*Visit the hosted site [here](https://omac-nc-games.netlify.app)*
+
 _The backend API for this project can be found [here](https://github.com/omcmanus1/be-nc-games)._
 
 ## Prerequisites
