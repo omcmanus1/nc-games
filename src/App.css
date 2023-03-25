@@ -83,11 +83,15 @@ a {
 }
 
 .page-header {
-    font-size: 3em;
-    font-weight: bold;
-    color:#155a93;
-    padding: 1.5%;
-  }
+  font-size: 3em;
+  font-weight: bold;
+  color:#155a93;
+  padding: 1.5%;
+}
+
+.home-subtitle {
+  margin: 1.5%;
+}
 
 .reviews-subtitle {
   margin: 0.2%;

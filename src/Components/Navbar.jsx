@@ -10,11 +10,10 @@ export default function NavBar() {
 
   useEffect(() => {
     fetchUsers().then((userArray) => {
-      setuserDetails(
-        [...userArray].filter((user) => {
-          return loggedInUser.username === user.username;
-        })[0]
-      );
+      const matchedUser = [...userArray].filter((user) => {
+        return loggedInUser.username === user.username;
+      })[0];
+      if (matchedUser) setuserDetails(matchedUser);
     });
   }, [loggedInUser]);
 
@@ -35,7 +34,7 @@ export default function NavBar() {
               Categories
             </Link>
           </li>
-          {userDetails ? (
+          {Object.keys(userDetails).length ? (
             <>
               <li className="nav-item">
                 <Link to="/log-in" className="nav-link">
@@ -48,7 +47,6 @@ export default function NavBar() {
                   alt={userDetails.username}
                   className="user-icon"
                 />
-                <p>({userDetails.username})</p>
               </li>
             </>
           ) : (
@@ -57,6 +55,9 @@ export default function NavBar() {
                 <Link to="/log-in" className="nav-link">
                   Log In
                 </Link>
+              </li>
+              <li className="nav-item">
+                <p className="nav-link">(Guest)</p>
               </li>
             </>
           )}
